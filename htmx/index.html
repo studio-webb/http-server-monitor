@@ -1,0 +1,22 @@
+<html>
+<head>
+    <link href="./css/tailwind.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<h1>AlexPua's Hardware Monitor</h1>
+<div hx-ext="ws" ws-connect="ws://localhost:8080/ws">
+    <div id="update-timestamp">Loading data...</div>
+    <div id="monitor-data">
+        <div id="system-data"></div>
+        <div id="disk-data"></div>
+        <div id="cpu-data"></div>
+    </div>
+</div>
+<script src="https://unpkg.com/htmx.org@2.0.3"
+        integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
+        crossorigin="anonymous">
+</script>
+<script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/ws.js"></script>
+</body>
+</html>

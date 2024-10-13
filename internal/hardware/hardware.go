@@ -28,13 +28,18 @@ func GetSystemSection() (string, error) {
 	return output, nil
 }
 
-func FetCPUSection() (string, error) {
+func GetCPUSection() (string, error) {
 	cpuStat, err := cpu.Info()
 	if err != nil {
 		return "", err
 	}
 
-	output := fmt.Sprintf("CPU: %s\nCores: %d\n", cpuStat[0].ModelName, len(cpuStat))
+	cpuCount, err := cpu.Counts(false)
+	if err != nil {
+		return "", err
+	}
+
+	output := fmt.Sprintf("CPU: %s\nCores: %d\n", cpuStat[0].ModelName, cpuCount)
 
 	return output, nil
 }
