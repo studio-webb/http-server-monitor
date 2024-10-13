@@ -29,6 +29,7 @@ func NewServer() *Server {
 	}
 
 	s.mux.Handle("/", http.FileServer(http.Dir("./htmx")))
+	s.mux.Handle("/css/", http.FileServer(http.Dir("./public")))
 	s.mux.HandleFunc("/ws", s.subscriberHandler)
 	return s
 }
